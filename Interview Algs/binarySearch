@@ -1,0 +1,26 @@
+def binary_search(sequence, item):
+    start_index = 0
+    end_index = len(sequence) - 1
+    
+    while start_index <= end_index:
+        midpoint = start_index + (end_index - start_index) // 2 #prevents integer overflow errors
+        midpoint_value = sequence[midpoint]
+        
+        if midpoint_value == item:
+            return midpoint
+        
+        elif item < midpoint_value:
+            end_index = midpoint - 1
+            
+        elif item > midpoint_value:
+            start_index = midpoint + 1
+        else:
+            print("NOT FOUND")
+            break
+    
+sequence_a = [2,4,5,6,7,8,9,10,12,13,14]
+#             0 1 2 3 4 5 6 7  8  9  10  
+item_a = 7
+
+print(binary_search(sequence_a,item_a))
+
